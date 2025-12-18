@@ -62,11 +62,10 @@ class EmpresaInfo(models.Model):
         related_name="empresa_info"
     )
 
-    quantidade_produtos = models.IntegerField(default=0)
     total_vendas_dia = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     total_vendas_mes = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     total_vendas_ano = models.DecimalField(decimal_places=2, max_digits=10, default=0)
-    faturamento_ano = models.DecimalField(decimal_places=2, max_digits=10, default=0)
+    total_vendas = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     ultimo_acesso = models.DateField(default=current_date)
     data_criacao = models.DateField(default=current_date)
     hora_criacao = models.TimeField(default=current_time)
