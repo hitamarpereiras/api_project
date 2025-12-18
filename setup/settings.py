@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from datetime import timedelta
 import dj_database_url
 from pathlib import Path
+import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,8 +24,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts',
-    'collaborators'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'accounts',
+    'collaborators',
     'products',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
@@ -97,9 +98,12 @@ load_dotenv(dotenv_path=path_env)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Database engine
-        'NAME': BASE_DIR / 'database.db', # Database file path
-        'OPTIONS': {'timeout': 15}
+        'ENGINE': 'django.db.backends.postgresql',  # Database engine
+        'NAME': os.getenv('NAME'), # Nome do banco de dados criado no Postgres
+        'USER': os.getenv('USER'), # Usuário do Postgres
+        'PASSWORD': os.getenv('PASSWORD'), # Senha do usuário
+        'HOST': os.getenv('HOST'), # Ou o IP/nome do host onde o Postgres está rodando
+        'PORT': os.getenv('PORT'), # Porta padrão do Postgres
     }
 }
 
