@@ -15,7 +15,7 @@ class EmpresaCreateSerializer(serializers.ModelSerializer):
             "username",
             "password",
             "cnpj",
-            "nome_empresa"
+            "nome_empresa",
             "endereco",
             "telefone",
             "img_file"

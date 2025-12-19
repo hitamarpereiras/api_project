@@ -38,13 +38,10 @@ class EmpresaView(APIView):
                 # cria EmpresaInfo vinculada automaticamente
                 EmpresaInfo.objects.create(
                     id_empresa=empresa,
-                    quantidade_produtos=0,
-                    estoque_por_categoria={},
-                    vendas_por_produtos={},
-                    vendas_online_total=0,
-                    faturamento_diario=0,
-                    faturamento_mes=0,
-                    faturamento_ano=0
+                    total_vendas_dia=0,
+                    total_vendas_mes=0,
+                    total_vendas_ano=0,
+                    total_vendas=0
                 )
 
                 return Response(
@@ -56,4 +53,4 @@ class EmpresaView(APIView):
                 )
 
         except Exception as err:
-            return Response({"err": str(err)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"err views": str(err)}, status=status.HTTP_400_BAD_REQUEST)
