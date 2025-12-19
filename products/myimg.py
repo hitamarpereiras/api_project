@@ -4,9 +4,11 @@ from datetime import datetime
 import os
 import uuid
 
-load_dotenv('.env')
+path_env = os.path.join('products', '.env')
+load_dotenv(dotenv_path=path_env)
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
+
 supabase = create_client(url, key)
 
 def upload_image(file_bytes, filename):
