@@ -92,16 +92,16 @@ AUTH_USER_MODEL = 'accounts.User'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 path_env = os.path.join(BASE_DIR, 'database', '.env')
-load_dotenv(dotenv_path=path_env)
+load_dotenv(dotenv_path=path_env, encoding='utf-8')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Database engine
         'NAME': os.getenv('NAME'), # Nome do banco de dados criado no Postgres
-        'USER': os.getenv('USER'), # Usuário do Postgres
+        'USER': os.getenv('USERS'), # Usuário do Postgres
         'PASSWORD': os.getenv('PASSWORD'), # Senha do usuário
         'HOST': os.getenv('HOST'), # Ou o IP/nome do host onde o Postgres está rodando
-        'PORT': os.getenv('PORT'), # Porta padrão do Postgres
+        'PORT': os.getenv('PORT') # Porta padrão do Postgres
     }
 }
 

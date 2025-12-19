@@ -4,10 +4,9 @@ from datetime import datetime
 import os
 import uuid
 
-path_env = os.path.join('database', '.env')
-load_dotenv(dotenv_path=path_env)
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
+url= str("https://vastxqzdhjxfgobkkxcp.supabase.co")
+key= str("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhc3R4cXpkaGp4ZmdvYmtreGNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE5NDEzNzAsImV4cCI6MjA3NzUxNzM3MH0.TRDZH8UF1R1FBOAkLiXp4byWgolWRLD36uai-J9B1sE")
+
 supabase = create_client(url, key)
 
 def upload_image(file_bytes, filename):
