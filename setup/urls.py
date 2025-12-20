@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
+from .views import home
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -8,11 +9,8 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
-def home(request):
-    return JsonResponse({'message': 'API Django no ar 🚀'})
-
 urlpatterns = [
-    path('', home),
+    path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('contas/', include('accounts.urls')),
     path('produtos/', include('products.urls')),

@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 import uuid
 
-path_env = os.path.join('products', '.env')
+path_env = os.path.join('links', '.env')
 load_dotenv(dotenv_path=path_env)
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
