@@ -97,6 +97,18 @@ path_env = os.path.join(BASE_DIR, 'database', '.env')
 load_dotenv(dotenv_path=path_env, encoding='utf-8')
 
 DATABASES = {
+    'default': dj_database_url.parse(
+        os.environ.get("DB_URL"),
+        conn_max_age=600,
+        ssl_require=True,
+    )
+}
+
+DATABASES['default']['OPTIONS'] = {
+    'sslmode': 'require'
+}
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Database engine
         'NAME': os.getenv('NAME'), # Nome do banco de dados criado no Postgres
@@ -105,14 +117,6 @@ DATABASES = {
         'HOST': os.getenv('HOST'), # Ou o IP/nome do host onde o Postgres está rodando
         'PORT': os.getenv('PORT') # Porta padrão do Postgres
     }
-}
-
-"""DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True,
-    )
 }"""
 
 # Password validation
