@@ -12,7 +12,7 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 def upload_image(file_bytes, filename):
-    SUPABASE_BUCKET = "imagens_empresa"
+    SUPABASE_BUCKET = "imagens_produtos"
 
     date = datetime.now().strftime("%d%m%Y_%H%M%S")
     ext = filename.split('.')[-1]
